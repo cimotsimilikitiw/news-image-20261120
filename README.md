@@ -1,8 +1,8 @@
-# The Global Daily Dispatch — Friday, 20 November 2026
+[![make.fun · news-image-20261120](https://make.fun/badge/news-image-20261120.svg)](https://make.fun/bounty/news-image-20261120?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
+[![rank](https://make.fun/badge/news-image-20261120/cimotsimilikitiw/news-image-20261120/rank.svg)](https://make.fun/bounty/news-image-20261120/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
+[![reward](https://make.fun/badge/news-image-20261120/cimotsimilikitiw/news-image-20261120/reward.svg)](https://make.fun/bounty/news-image-20261120?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261120)
 
-[![make.fun bounty](https://img.shields.io/badge/make.fun-news--image--20261120-14181F?style=flat-square)](https://make.fun/bounty/news-image-20261120)
-[![Python 3.13](https://img.shields.io/badge/python-3.13%20stdlib-2B4C7E?style=flat-square)](https://make.fun/bounty/news-image-20261120)
-[![License: MIT](https://img.shields.io/badge/license-MIT-8B261D?style=flat-square)](https://make.fun/bounty/news-image-20261120)
+# The Global Daily Dispatch — Friday, 20 November 2026
 
 Archival `1024×1024` editorial broadsheet (`entry.png`) and deterministic Python 3.13 CLI (`main.py`) covering six global stories from **Friday, 20 November 2026**:
 
