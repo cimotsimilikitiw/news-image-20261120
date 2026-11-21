@@ -865,16 +865,16 @@ def render_front_page(prompt: str, seed: int, salt: str, width: int = 1024, heig
 # CLI
 # ---------------------------------------------------------------------------
 
-DEFAULT_PROMPT = "Sum up the world's news in one image as an editorial front page."
+DEFAULT_PROMPT = "Sum up the world's news of Friday 20 November 2026 in one image."
 
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description="Deterministic editorial front-page PNG renderer")
     p.add_argument("--prompt", default=None, help="Story prompt text")
     p.add_argument("--prompt-file", default=None, help="Read prompt text from file")
-    p.add_argument("--seed", type=int, default=1, help="Deterministic seed")
-    p.add_argument("--variant-salt", "--salt", dest="variant_salt", default="", help="Variant salt")
-    p.add_argument("--out", required=True, help="Output PNG path")
+    p.add_argument("--seed", type=int, default=20261120, help="Deterministic seed")
+    p.add_argument("--variant-salt", "--salt", dest="variant_salt", default="A", help="Variant salt")
+    p.add_argument("--out", default=None, help="Output PNG path (default: $MAKEFUN_OUTPUT_DIR/entry.png)")
     p.add_argument("--width", type=int, default=1024, help="Image width (max 1024)")
     p.add_argument("--height", type=int, default=1024, help="Image height (max 1024)")
     return p
@@ -901,6 +901,8 @@ def main(argv: list[str] | None = None) -> int:
     salt = str(args.variant_salt or "")
     seed = int(args.seed)
 
+    if args.out is None:
+        args.out = os.path.join(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"), "entry.png")
     out_path = os.path.abspath(args.out)
     out_dir = os.path.dirname(out_path)
     if out_dir:
