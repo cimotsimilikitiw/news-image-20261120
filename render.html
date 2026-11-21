@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The Global Daily Dispatch — Friday, 20 November 2026</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 1024px;
+      height: 1024px;
+      overflow: hidden;
+      background-color: #F7F3E9;
+      color: #14181F;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      width: 1024px;
+      height: 1024px;
+      padding: 18px 24px 14px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: #F7F3E9;
+      border: 1px solid #D8D0BE;
+    }
+
+    .masthead {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 3px double #14181F;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+    }
+
+    .masthead-meta {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: #4A4E57;
+      border-bottom: 1px solid #C8BFA8;
+      padding-bottom: 4px;
+      margin-bottom: 6px;
+    }
+
+    .masthead-title {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: #14181F;
+      text-align: center;
+      margin-bottom: 7px;
+    }
+
+    .dateline-bar {
+      width: 100%;
+      background-color: #14181F;
+      color: #F7F3E9;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 14px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .dateline-sub {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 1.3px;
+      color: #DFD8C8;
+    }
+
+    .lead-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      border-bottom: 2px solid #14181F;
+      padding-bottom: 14px;
+      margin-bottom: 12px;
+      flex: 0 0 auto;
+    }
+
+    .lead-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .lead-card:first-child {
+      padding-right: 18px;
+      border-right: 1px solid #C8BFA8;
+    }
+
+    .kicker {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: #8B261D;
+      margin-bottom: 4px;
+    }
+
+    .lead-headline {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.16;
+      color: #14181F;
+      margin-bottom: 8px;
+    }
+
+    .lead-svg-wrap {
+      width: 100%;
+      height: 152px;
+      border: 1px solid #C8BFA8;
+      background-color: #EFE9D8;
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+
+    .lead-body {
+      font-size: 13px;
+      line-height: 1.42;
+      color: #232730;
+      text-align: left;
+    }
+
+    .secondary-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 14px 20px;
+      flex: 1 1 auto;
+    }
+
+    .sec-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #C8BFA8;
+    }
+
+    .sec-card:nth-child(odd) {
+      padding-right: 18px;
+      border-right: 1px solid #C8BFA8;
+    }
+
+    .sec-card:nth-child(3),
+    .sec-card:nth-child(4) {
+      border-bottom: none;
+      padding-bottom: 4px;
+    }
+
+    .sec-content {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-top: 6px;
+    }
+
+    .sec-svg-wrap {
+      flex: 0 0 144px;
+      height: 126px;
+      border: 1px solid #C8BFA8;
+      background-color: #EFE9D8;
+      overflow: hidden;
+    }
+
+    .sec-text {
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sec-headline {
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 18.5px;
+      font-weight: 800;
+      line-height: 1.18;
+      color: #14181F;
+      margin-bottom: 6px;
+    }
+
+    .sec-body {
+      font-size: 13px;
+      line-height: 1.44;
+      color: #232730;
+    }
+
+    .badge-claimed {
+      display: inline-block;
+      background-color: #8B261D;
+      color: #F7F3E9;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      padding: 1px 4px;
+      border-radius: 2px;
+      vertical-align: middle;
+    }
+
+    .footer {
+      border-top: 2px solid #14181F;
+      padding-top: 6px;
+      margin-top: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: #4A4E57;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="masthead">
+      <div class="masthead-meta">
+        <span>VOL. I · NO. 324</span>
+        <span>WORLD EDITION · 6 REGIONS</span>
+        <span>ARCHIVAL PRINT</span>
+      </div>
+      <h1 class="masthead-title">THE GLOBAL DAILY DISPATCH</h1>
+      <div class="dateline-bar">
+        <span>FRIDAY, 20 NOVEMBER 2026</span>
+        <span class="dateline-sub">VERIFIED DISPATCHES · EUROPE · MIDDLE EAST · CLIMATE · AMERICAS · AFRICA · CULTURE</span>
+      </div>
+    </header>
+
+    <section class="lead-row">
+      <article class="lead-card">
+        <div class="kicker">EUROPE · SECURITY</div>
+        <h2 class="lead-headline">Russian Kh-101 Missile Strikes Field in Poland</h2>
+        <div class="lead-svg-wrap">
+          <svg viewBox="0 0 460 152" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <rect width="460" height="152" fill="#E8E1CE"/>
+            <path d="M 35 18 L 265 14 L 298 52 L 322 92 L 285 138 L 42 135 Z" fill="#F4EFE2" stroke="#6E6A5E" stroke-width="1.5"/>
+            <path d="M 265 14 L 298 52 L 322 92 L 285 138" fill="none" stroke="#8B261D" stroke-width="2" stroke-dasharray="5,3"/>
+            <text x="110" y="75" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" font-weight="700" fill="#5A564C" letter-spacing="2">POLAND</text>
+            <text x="335" y="72" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="700" fill="#7A7366" letter-spacing="1.5">EASTERN</text>
+            <text x="335" y="86" font-family="Helvetica Neue, Arial, sans-serif" font-size="11" font-weight="700" fill="#7A7366" letter-spacing="1.5">BORDER</text>
+            <circle cx="248" cy="78" r="32" fill="none" stroke="#2B4C7E" stroke-width="1.2" stroke-dasharray="3,3"/>
+            <circle cx="248" cy="78" r="50" fill="none" stroke="#2B4C7E" stroke-width="0.9" stroke-opacity="0.5"/>
+            <circle cx="200" cy="60" r="4" fill="#2B4C7E"/>
+            <text x="150" y="51" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" font-weight="700" fill="#2B4C7E">LUBLIN</text>
+            <circle cx="248" cy="78" r="5.5" fill="#8B261D"/>
+            <rect x="257" y="71" width="84" height="14" rx="2" fill="#F4EFE2" fill-opacity="0.9"/>
+            <text x="260" y="81.5" font-family="Helvetica Neue, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#8B261D">NOWY LIPOWIEC</text>
+            <path d="M 435 28 Q 345 18 253 75" fill="none" stroke="#8B261D" stroke-width="2.4" stroke-dasharray="6,4"/>
+            <polygon points="249,77 259,68 262,76" fill="#8B261D"/>
+            <text x="325" y="25" font-family="Helvetica Neue, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#8B261D">Kh-101 TRACK</text>
+            <circle cx="152" cy="116" r="3.5" fill="#14181F"/>
+            <text x="160" y="120" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="700" fill="#14181F">DRILL (~60 MI)</text>
+          </svg>
+        </div>
+        <p class="lead-body">A Russian Kh-101 cruise missile struck an agricultural field near Nowy Lipowiec in Lublin Voivodeship, roughly 60 miles from an active Coalition drill. Air-raid sirens sounded across Lublin and Podkarpackie provinces as Polish and NATO air-defense units tracked the incursion.</p>
+      </article>
+
+      <article class="lead-card">
+        <div class="kicker">MIDDLE EAST · ENERGY</div>
+        <h2 class="lead-headline">Oil Tanker Ablaze in Strait of Hormuz; Yemen Strikes</h2>
+        <div class="lead-svg-wrap">
+          <svg viewBox="0 0 460 152" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <rect width="460" height="152" fill="#D8E2E8"/>
+            <path d="M 0 0 L 460 0 L 460 56 Q 360 72 280 48 Q 180 28 0 48 Z" fill="#E3DAC4" stroke="#7A705C" stroke-width="1.3"/>
+            <path d="M 0 114 Q 140 96 225 112 Q 260 118 285 88 L 325 112 L 460 128 L 460 152 L 0 152 Z" fill="#DDD2B8" stroke="#7A705C" stroke-width="1.3"/>
+            <text x="18" y="26" font-family="Helvetica Neue, Arial, sans-serif" font-size="10.5" font-weight="700" fill="#5E5748" letter-spacing="1.4">STRAIT OF HORMUZ</text>
+            <text x="275" y="138" font-family="Helvetica Neue, Arial, sans-serif" font-size="10" font-weight="700" fill="#5E5748" letter-spacing="1.2">KHASAB, OMAN</text>
+            <path d="M 155 88 L 245 88 L 258 76 L 148 76 Z" fill="#1F2937"/>
+            <rect x="165" y="68" width="18" height="8" fill="#374151"/>
+            <rect x="195" y="71" width="38" height="5" fill="#4B5563"/>
+            <path d="M 214 71 Q 222 52 240 42 Q 258 32 282 22 Q 265 44 252 54 Q 238 62 228 71 Z" fill="#2A2E35" fill-opacity="0.82"/>
+            <path d="M 212 72 Q 216 58 225 56 Q 229 63 224 72 Z" fill="#D9531E"/>
+            <circle cx="290" cy="86" r="4" fill="#8B261D"/>
+            <line x1="290" y1="86" x2="290" y2="112" stroke="#8B261D" stroke-width="1.2" stroke-dasharray="2,2"/>
+            <text x="300" y="89" font-family="Helvetica Neue, Arial, sans-serif" font-size="9.5" font-weight="800" fill="#8B261D">UKMTO ALERT</text>
+          </svg>
+        </div>
+        <p class="lead-body">A commercial oil tanker was damaged and set ablaze off Khasab, Oman, amid IRGC Navy warnings and UKMTO maritime alerts in the Strait of Hormuz. Separately, Saudi-led coalition aircraft carried out strikes on targets in Hodeidah and Sanaa.</p>
+      </article>
+    </section>
+
+    <section class="secondary-grid">
+      <article class="sec-card">
+        <div class="kicker">GLOBAL CLIMATE · COP31</div>
+        <div class="sec-content">
+          <div class="sec-svg-wrap">
+            <svg viewBox="0 0 132 112" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="132" height="112" fill="#EFE9D8"/>
+              <circle cx="66" cy="52" r="36" fill="none" stroke="#C8BFA8" stroke-width="1.2"/>
+              <ellipse cx="66" cy="52" rx="18" ry="36" fill="none" stroke="#C8BFA8" stroke-width="1"/>
+              <line x1="30" y1="52" x2="102" y2="52" stroke="#C8BFA8" stroke-width="1"/>
+              <line x1="66" y1="16" x2="66" y2="88" stroke="#14181F" stroke-width="2.5"/>
+              <rect x="44" y="88" width="44" height="6" fill="#14181F"/>
+              <line x1="24" y1="36" x2="108" y2="26" stroke="#14181F" stroke-width="2.2"/>
+              <line x1="24" y1="36" x2="14" y2="62" stroke="#5A564C" stroke-width="1.2"/>
+              <line x1="24" y1="36" x2="34" y2="62" stroke="#5A564C" stroke-width="1.2"/>
+              <path d="M 12 62 Q 24 72 36 62 Z" fill="#8B261D"/>
+              <line x1="108" y1="26" x2="98" y2="52" stroke="#5A564C" stroke-width="1.2"/>
+              <line x1="108" y1="26" x2="118" y2="52" stroke="#5A564C" stroke-width="1.2"/>
+              <path d="M 96 52 Q 108 62 120 52 Z" fill="#2A6B4F"/>
+              <text x="66" y="106" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="800" fill="#4A4E57">ANTALYA · COP31</text>
+            </svg>
+          </div>
+          <div class="sec-text">
+            <h3 class="sec-headline">COP31 Talks Deadlocked Over Fossil Fuels</h3>
+            <p class="sec-body">The Antalya climate summit stalled as France and Panama opposed a draft omitting fossil-fuel cuts, while the Africa Group pressed for adaptation funds.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sec-card">
+        <div class="kicker">AMERICAS · MARKETS &amp; AI</div>
+        <div class="sec-content">
+          <div class="sec-svg-wrap">
+            <svg viewBox="0 0 132 112" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="132" height="112" fill="#EFE9D8"/>
+              <line x1="14" y1="14" x2="14" y2="86" stroke="#8F8877" stroke-width="1.2"/>
+              <line x1="14" y1="86" x2="122" y2="86" stroke="#8F8877" stroke-width="1.2"/>
+              <polyline points="16,24 38,32 54,28 74,56 92,50 116,78" fill="none" stroke="#8B261D" stroke-width="2.5"/>
+              <line x1="88" y1="14" x2="88" y2="86" stroke="#2B4C7E" stroke-width="1.4" stroke-dasharray="3,2"/>
+              <circle cx="88" cy="36" r="3" fill="#2B4C7E"/>
+              <circle cx="88" cy="64" r="3" fill="#2B4C7E"/>
+              <text x="20" y="102" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="800" fill="#8B261D">-10% CORR.</text>
+              <text x="76" y="102" font-family="Georgia, serif" font-size="9.5" font-weight="700" fill="#2B4C7E">ζ(s)=0</text>
+            </svg>
+          </div>
+          <div class="sec-text">
+            <h3 class="sec-headline">Nasdaq Erases 2026 Gains; Claimed Riemann Proof</h3>
+            <p class="sec-body">S&amp;P 500 and Dow entered a 10% correction as Anthropic slid. Levent Alpöge released a <span class="badge-claimed">CLAIMED</span> Claude-assisted Riemann proof (unverified).</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sec-card">
+        <div class="kicker">AFRICA · DISASTER</div>
+        <div class="sec-content">
+          <div class="sec-svg-wrap">
+            <svg viewBox="0 0 132 112" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="132" height="112" fill="#DCE6EA"/>
+              <path d="M 0 68 Q 33 60 66 68 T 132 68 L 132 112 L 0 112 Z" fill="#9BB6C4"/>
+              <path d="M 0 82 Q 33 75 66 82 T 132 82 L 132 112 L 0 112 Z" fill="#7195A8"/>
+              <path d="M 28 66 Q 58 46 88 64 L 78 72 L 36 72 Z" fill="#3B312B" transform="rotate(-12 58 64)"/>
+              <circle cx="102" cy="46" r="11" fill="none" stroke="#D9531E" stroke-width="4.5"/>
+              <circle cx="102" cy="46" r="11" fill="none" stroke="#F7F3E9" stroke-width="1.5" stroke-dasharray="4,4"/>
+              <text x="66" y="103" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="800" fill="#14181F">BAYELSA · NIGERIA</text>
+            </svg>
+          </div>
+          <div class="sec-text">
+            <h3 class="sec-headline">30 Killed, ~300 Missing in Nigeria Boat Capsizing</h3>
+            <p class="sec-body">A vessel carrying funeral-goers capsized in Bayelsa State waterways, leaving at least 30 dead and roughly 300 missing as search crews worked the delta.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="sec-card">
+        <div class="kicker">GLOBAL CULTURE · RECORD</div>
+        <div class="sec-content">
+          <div class="sec-svg-wrap">
+            <svg viewBox="0 0 132 112" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="132" height="112" fill="#1F2033"/>
+              <rect x="0" y="78" width="132" height="34" fill="#141524"/>
+              <rect x="14" y="42" width="22" height="44" fill="#D94B8A"/>
+              <rect x="44" y="56" width="22" height="30" fill="#4CA9B8"/>
+              <text x="25" y="36" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="9" font-weight="800" fill="#F7F3E9">$3.8B</text>
+              <text x="55" y="50" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="8.5" font-weight="700" fill="#B8C4D4">$2.5B</text>
+              <path d="M 96 78 Q 98 54 104 42" stroke="#F7F3E9" stroke-width="2" fill="none"/>
+              <path d="M 104 42 Q 90 36 82 44 M 104 42 Q 94 28 86 30 M 104 42 Q 116 32 124 38 M 104 42 Q 116 44 122 52" stroke="#4CA9B8" stroke-width="2" fill="none"/>
+              <text x="66" y="102" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="8.5" font-weight="800" fill="#DFD8C8">32.5M PRE-SOLD</text>
+            </svg>
+          </div>
+          <div class="sec-text">
+            <h3 class="sec-headline">GTA 6 Hits Record $3.8bn First-Day Sales</h3>
+            <p class="sec-body">Take-Two reported 32.5m pre-sold copies and $3.8bn in day-one sales, passing Spider-Man's $2.5bn mark for the largest entertainment launch in history.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <span>6 REGIONS · EUROPE · MIDDLE EAST · GLOBAL CLIMATE · AMERICAS · AFRICA · GLOBAL CULTURE</span>
+      <span>EDITION 2026-11-20</span>
+    </footer>
+  </div>
+</body>
+</html>
